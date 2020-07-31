@@ -1,0 +1,8 @@
+:root {
+    // --animate-delay: 0.5s;
+    
+  }
+
+  @for $i from 0 through 30 {
+    .list-item-#{$i} { animation-delay: 0.1s * $i; }
+  }

@@ -1,0 +1,302 @@
+<template>
+  <div class="header">
+    <img
+      class="logo animate__animated animate__fadeInRight"
+      alt=""
+    />
+
+    <div class="tab-view ">
+      <a
+        class="tab-item"
+        :class="{ active: activeIndex == 0 }"
+        @click="tabClick(0)"
+        >首 页<span class="divider"></span
+      ></a>
+    
+    </div>
+    <div class="btn-view">
+      <el-button class="btn" type="text" @click="login">{{
+        token ? userInfo.username : "登录"
+      }}</el-button>
+      <el-button class="btn" v-if="!token" type="text" @click="register"
+        >注册</el-button
+      >
+      <el-button class="btn" v-if="token" type="text" @click="logout"
+        >退出</el-button
+      >
+      <el-button class="btn" v-if="token" type="text" @click="cancellation"
+        >注销</el-button
+      >
+    </div>
+    <CommonDialog
+      v-if="showLogOutDialog"
+      @close="showLogOutDialog = false"
+      @confirm="doLogout"
+    >
+      <p>确定退出登录？</p>
+    </CommonDialog>
+
+    <CommonDialog
+      v-if="showCancelDialog"
+      @close="showCancelDialog = false"
+      @confirm="doCancel"
+    >
+      <p>确定注销当前账户？</p>
+    </CommonDialog>
+  </div>
+</template>
+
+<script>
+import { mapGetters } from "vuex";
+export default {
+  components: {
+    CommonDialog: () => import("@components/CommonDialog")
+  },
+  data() {
+    return {
+      activeIndex: 0,
+      showLogOutDialog: false,
+      showCancelDialog: false,
+ 
+    };
+  },
+  computed: {
+    ...mapGetters({
+      userInfo: "userInfo",
+      token: "token"
+    })
+  },
+  watch: {
+    "$route.path": {
+      immediate: true,
+      handler(to, from) {
+        if (to.indexOf("/about/") !== -1) {
+          this.activeIndex = 0;
+        }
+      }
+    }
+  },
+
+  created() {
+    this.activeIndex = 0;
+    if (sessionStorage.getItem("active-tab")) {
+      this.activeIndex = sessionStorage.getItem("active-tab");
+    }
+    //在页面刷新时将vuex里的信息保存到sessionStorage里
+    window.addEventListener("beforeunload", () => {
+      sessionStorage.setItem("active-tab", this.activeIndex);
+    });
+  },
+  mounted() {
+    this.$bus.on("header-active-index", this.tabClick);
+  },
+  beforeDestroy() {
+    this.$bus.off("header-active-index", this.tabClick);
+  },
+  methods: {
+   
+    tabClick(index, data) {
+      this.activeIndex = index;
+      switch (index) {
+        case 0:
+          this.$router.push({ path: "/" });
+          break;
+      
+
+        default:
+          break;
+      }
+    },
+    login() {
+      if (this.token) {
+        this.activeIndex = 0;
+        // this.$router.push("/personal/user");
+        return;
+      }
+      this.$router.push({ path: "/login" });
+    },
+    register() {
+      this.$router.push({ path: "/register" });
+    },
+    logout() {
+      this.showLogOutDialog = true;
+    },
+    doLogout() {
+      this.$store
+        .dispatch("user/LogOut")
+        .then(res => {
+          if (res) {
+            this.showLogOutDialog = false;
+            this.activeIndex = 0;
+            this.$router.push("/");
+            return;
+          }
+          this.$message.error("退出失败");
+        })
+        .catch(err => {
+          this.showLogOutDialog = false;
+        });
+    },
+    cancellation() {
+     
+      this.showCancelDialog = true;
+    },
+    doCancel() {
+      let params = { userId: this.userInfo.userId, isLogout: 1 };
+      let json = JSON.stringify(params);
+      this.$api
+        .userUpdate({ json })
+        .then(res => {
+          if (res.status === "SUCCESS") {
+            this.$message.success(res.message);
+            this.$store.dispatch("user/userState");
+            return;
+          }
+          this.$message.error(res.message);
+        })
+        .catch(err => {});
+    }
+  }
+};
+</script>
+
+<style lang="scss">
+.el-dropdown-menu.header-drop-menu[x-placement^="bottom"] {
+  background: rgba(0, 32, 75, 0.6);
+  font-size: 16px;
+  padding: 0;
+  border: none;
+  .el-dropdown-menu__item {
+    color: #fff;
+    line-height: 50px;
+    padding: 0 25px;
+    &:not(.is-disabled):hover,
+    .el-dropdown-menu__item:focus {
+      color: rgb(4, 223, 255);
+      background: rgba(0, 32, 75, 0.8);
+    }
+  }
+  .popper__arrow {
+    border-bottom-color: transparent;
+    &::after {
+      border-bottom-color: rgba(0, 32, 75, 0.6);
+    }
+  }
+}
+</style>
+<style lang="scss" scoped>
+$red: white;
+@mixin transition($in) {
+  transition: $in;
+  -webkit-transition: $in;
+  -moz-transition: $in;
+  -o-transition: $in;
+  -ms-transition: $in;
+}
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  padding: 0 30px;
+  height: 70px;
+  min-height: 70px;
+  background-color: chocolate;
+  color: #ffffff;
+  .logo {
+    position: absolute;
+    left: 30px;
+    width: 240px;
+  }
+  // Button wrap
+  .tab-view {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    width: 700px;
+    .tab-item {
+      color: #fff;
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 45px;
+      max-width: 160px;
+      text-decoration: none;
+      display: block;
+      width: 100%;
+      cursor: pointer;
+      position: relative;
+      @include transition(all 0.5s ease);
+      .divider {
+        position: absolute;
+        right: 0;
+        top: 15px;
+        width: 1px;
+        height: 20px;
+        background: #5386ba;
+      }
+
+      // &:before {
+      //   width: 0;
+      //   height: 2px;
+      //   content: " ";
+      //   background-color: $red;
+      //   position: absolute;
+      //   top: 0;
+      //   left: 50%;
+      //   @include transition(all 0.3s ease);
+      // }
+
+      &:after {
+        // @extend .tab-item:before;
+        width: 0;
+        height: 2px;
+        content: " ";
+        background-color: $red;
+        position: absolute;
+        left: 50%;
+        top: 100%;
+        @include transition(all 0.3s ease);
+      }
+      &.active {
+        color: rgb(4, 223, 255);
+      }
+      &:hover {
+        color: rgb(4, 223, 255);
+        &:before {
+          width: 70%;
+          left: 15%;
+          right: 15%;
+        }
+        &:after {
+          width: 70%;
+          left: 15%;
+          right: 15%;
+        }
+      }
+    }
+  }
+
+  .btn-view {
+    position: absolute;
+    right: 0px;
+    display: flex;
+    font-size: 12px;
+    .btn {
+      margin: 0 15px;
+      position: relative;
+      &:not(:last-child)::after {
+        content: "/";
+        position: absolute;
+        right: -15px;
+        top: 10px;
+      }
+    }
+    ::v-deep.el-button--text {
+      color: #ffffff;
+      font-size: 12px;
+    }
+  }
+  
+}
+</style>
