@@ -1,9 +1,7 @@
-@import "./transition.scss";
 @import "./element.scss";
 @import "./animate.scss";
-$blue: #176DC7;
-$red: #fe4d62;
-$--color-primary: $blue;
+@import "./reset.scss";
+
 $baseFontSizeWidth: 1920;
 $baseFontSizeHeight: 1080;
 
@@ -16,14 +14,22 @@ $baseFontSizeHeight: 1080;
 * {
   box-sizing: border-box;
 }
+body,
+html {
+  line-height: 1;
+  font-family: "Helvetica Neue,Tahoma,Arial,PingFangSC-Regular,Hiragino Sans GB,Microsoft Yahei,sans-serif";
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  background-color: var(--fill-1);
+  transition: all 0.3s linear;
+}
+
 html,
 body,
 .app {
   padding: 0;
   margin: 0;
   height: 100%;
-  color: rgb(68, 68, 68);
-  font-family: "Microsoft YaHei";
   font-size: 14px;
   overflow: hidden;
 }
@@ -33,7 +39,7 @@ body,
 }
 
 .color-primary {
-  color: $--color-primary;
+  color: var(--color-primary);
 }
 .pt5 {
   padding-top: 5px;
@@ -320,14 +326,31 @@ body,
   display: none
 }
 #info-win-a,#info-win-error {
-  color: $blue;
+  color: var(--color-primary);
 }
 
 
 // ==============================================================
-// #nprogress .bar {
-//   background: red !important; //自定义颜色
-// }
+
+
+// 不换行
+@mixin no-wrap {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+// 扩展点击区域
+@mixin extend-click {
+  position: relative;
+  &::before {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+  }
+}
 // ==============================================================
 
 

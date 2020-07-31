@@ -6,16 +6,31 @@
     />
 
     <div class="tab-view ">
-      <a
+      <!-- <a
         class="tab-item"
         :class="{ active: activeIndex == 0 }"
         @click="tabClick(0)"
         >首 页<span class="divider"></span
-      ></a>
+      ></a> -->
+
+       <el-button>默认按钮</el-button>
+  <el-button type="primary">主要按钮</el-button>
+ <el-switch
+  v-model="switchv"
+  >
+</el-switch>
     
     </div>
+
+
+     <div role="switch" class="switch" :class="theme === true ? 'is-checked' : ''">
+      <input type="checkbox" class="switch-input" />
+      <span class="switch-core" @click="changeTheme"></span>
+    </div>
+
+
     <div class="btn-view">
-      <el-button class="btn" type="text" @click="login">{{
+      <!-- <el-button class="btn" type="text" @click="login">{{
         token ? userInfo.username : "登录"
       }}</el-button>
       <el-button class="btn" v-if="!token" type="text" @click="register"
@@ -26,7 +41,8 @@
       >
       <el-button class="btn" v-if="token" type="text" @click="cancellation"
         >注销</el-button
-      >
+      > -->
+
     </div>
     <CommonDialog
       v-if="showLogOutDialog"
@@ -48,6 +64,7 @@
 
 <script>
 import { mapGetters } from "vuex";
+import { initTheme } from "@utils/theme";
 export default {
   components: {
     CommonDialog: () => import("@components/CommonDialog")
@@ -57,6 +74,8 @@ export default {
       activeIndex: 0,
       showLogOutDialog: false,
       showCancelDialog: false,
+      theme: true, // false深色主题
+      switchv:false
  
     };
   },
@@ -94,14 +113,16 @@ export default {
     this.$bus.off("header-active-index", this.tabClick);
   },
   methods: {
-   
+    changeTheme() {
+      this.theme = !this.theme;
+      initTheme(this.theme);
+    },
     tabClick(index, data) {
       this.activeIndex = index;
       switch (index) {
         case 0:
           this.$router.push({ path: "/" });
           break;
-      
 
         default:
           break;
@@ -201,8 +222,8 @@ $red: white;
   padding: 0 30px;
   height: 70px;
   min-height: 70px;
-  background-color: chocolate;
-  color: #ffffff;
+  background-color: var(--bg);;
+  color: var(--text-2);
   .logo {
     position: absolute;
     left: 30px;
@@ -296,6 +317,69 @@ $red: white;
       color: #ffffff;
       font-size: 12px;
     }
+  }
+
+
+  .switch {
+    display: inline-flex;
+    align-items: center;
+    position: relative;
+    font-size: 14px;
+    line-height: 20px;
+    height: 20px;
+    vertical-align: middle;
+  }
+  .switch {
+    margin-right: 20px ;
+    position: fixed;
+    right: 0;
+    &-input {
+      position: absolute;
+      width: 0;
+      height: 0;
+      opacity: 0;
+      margin: 0;
+    }
+    &-core {
+      margin: 0;
+      display: inline-block;
+      position: relative;
+      width: 40px;
+      height: 20px;
+      border: 1px solid #dcdfe6;
+      outline: none;
+      border-radius: 10px;
+      box-sizing: border-box;
+      background: #dcdfe6;
+      cursor: pointer;
+      transition: border-color 0.3s, background-color 0.3s;
+      vertical-align: middle;
+      &:after {
+        content: "";
+        position: absolute;
+        top: 1px;
+        left: 1px;
+        border-radius: 100%;
+        transition: all 0.3s;
+        width: 16px;
+        height: 16px;
+        background-color: #fff;
+      }
+    }
+  }
+  .switch.is-checked .switch-core:after {
+    left: 100%;
+    margin-left: -17px;
+  }
+  .switch .switch-core {
+    width: 40px;
+    border-color: #ffcd32;
+    background-color: #ffcd32;
+  }
+  .switch.is-checked .switch-core {
+    width: 40px;
+    border-color: #dcdfe6;
+    background-color: #dcdfe6;
   }
   
 }

@@ -271,9 +271,22 @@
 }
 
 
-// ==============================================================
+// ======================== 自定义主题 ======================================
 
+.el-button--primary {
+    background-color: var(--color-primary);
+    border-color: var(--color-primary);
+    &:focus,&:hover {
+      background-color: var(--text-2);
+      border-color: var(--text-2);
+    }
+}
 
+.el-switch.is-checked .el-switch__core {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+ 
+}
 
 // ==============================================================
 
