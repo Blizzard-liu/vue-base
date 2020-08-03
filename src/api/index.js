@@ -34,7 +34,7 @@ export default {
     // 
     logOut ({userId=store.getters.userId} = {}) {
       return request({
-        url: '/api/datas',
+        url: '/api/datas/websiteLogoutJson.do',
         method: 'post',
         data: {userId},
         transformRequest
@@ -52,11 +52,13 @@ export default {
    
      //个人信息 根据用户id获取用户信息
      userState ({userId=store.getters.userId} = {}) {
+       this.logOut()
       return request({
-        url: '/api/datas/',
+        url: '/api/datas/website/WebsiteGetUserInfoJson.do',
         method: 'post',
         data: {userId},
-        transformRequest
+        transformRequest,
+        routeChangeNoCancel:true
       })
     },
 

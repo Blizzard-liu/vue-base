@@ -30,6 +30,8 @@ export default {
     // });
 
     this.$store.dispatch('user/userState');
+    this.$store.dispatch('user/userState');
+    this.$store.dispatch('user/userState');
   }
 };
 </script>

@@ -3,6 +3,7 @@ import store from "@/store";
 import NProgress from "nprogress"; // 进度条
 // import 'nprogress/nprogress.css' // 进度条样式
 import { Message } from "element-ui";
+import { clearPending } from '@utils/http'
 
 //https://www.jianshu.com/p/346c05d4d9d8
 NProgress.configure({ showSpinner: false }); //进度环显示隐藏
@@ -10,6 +11,7 @@ NProgress.configure({ showSpinner: false }); //进度环显示隐藏
 const defaultTitle = '一拳超人';
 const whiteList = ["/login", "/"]; // 不重定向白名单
 router.beforeEach((to, from, next) => {
+  clearPending();//清空 pending 中的请求（在路由跳转时调用）
   NProgress.start();
   document.title = to.meta.title ? to.meta.title : defaultTitle;
   if (to.matched.some(record => record.meta.requireAuth)) {

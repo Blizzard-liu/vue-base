@@ -1,6 +1,6 @@
 <template>
   <transition name="fade-transform" mode="out-in">
-    <div class="request-loading-component" v-show="requestLoading" onselectstart="return false;" unselectable="on">
+    <div class="request-loading-component" v-show="requestLoading > 0" onselectstart="return false;" unselectable="on">
       <img class="loading" src="@imgs/icon/loading.svg" alt="">
     </div>
   </transition>

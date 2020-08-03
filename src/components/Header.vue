@@ -30,7 +30,7 @@
 
 
     <div class="btn-view">
-      <!-- <el-button class="btn" type="text" @click="login">{{
+      <el-button class="btn" type="text" @click="login">{{
         token ? userInfo.username : "登录"
       }}</el-button>
       <el-button class="btn" v-if="!token" type="text" @click="register"
@@ -41,7 +41,7 @@
       >
       <el-button class="btn" v-if="token" type="text" @click="cancellation"
         >注销</el-button
-      > -->
+      >
 
     </div>
     <CommonDialog

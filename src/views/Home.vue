@@ -4,7 +4,7 @@
       <div>
         <div class="reaconmend-list">
           <ul>
-            <li @click="selectItem(item)" v-for="item in discList" :key="item.dissid" class="item">
+            <li  v-for="item in discList" :key="item.dissid" class="item">
               <div class="icon">
                 <img :src="item.imgurl" alt width="60px" height="60px" />
               </div>
