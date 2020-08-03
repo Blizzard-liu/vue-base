@@ -97,6 +97,8 @@ export default {
   },
 
   created() {
+    
+
     this.activeIndex = 0;
     if (sessionStorage.getItem("active-tab")) {
       this.activeIndex = sessionStorage.getItem("active-tab");

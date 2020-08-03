@@ -1,7 +1,8 @@
-import request from '@/utils/request'
+import request from '@/utils/request1'
 import request2 from '@/utils/request2'
 import store from '@/store';
 import Qs from 'qs';
+
 
 const headers = {
   "Content-Type": "application/x-www-form-urlencoded;charset=utf-8;",
