@@ -1,9 +1,6 @@
 <template>
   <div class="header">
-    <img
-      class="logo animate__animated animate__fadeInRight"
-      alt=""
-    />
+    <img class="logo animate__animated animate__fadeInRight" alt="" />
 
     <div class="tab-view ">
       <!-- <a
@@ -13,23 +10,33 @@
         >首 页<span class="divider"></span
       ></a> -->
 
-       <el-button>默认按钮</el-button>
-  <el-button type="primary">主要按钮</el-button>
- <el-switch
-  v-model="switchv"
-  >
-</el-switch>
-    
+      <el-input
+        v-model="inputData"
+        placeholder="Please input"
+        style="width:400px;max-width:100%;"
+      />
+      <el-button
+        v-clipboard:copy="inputData"
+        v-clipboard:success="clipboardSuccess"
+        type="primary"
+        icon="el-icon-document"
+      >
+        copy
+      </el-button>
+      <el-button v-waves type="primary">主要按钮</el-button>
+      <el-switch v-model="switchv"> </el-switch>
     </div>
 
-
-     <div role="switch" class="switch" :class="theme === true ? 'is-checked' : ''">
+    <div
+      role="switch"
+      class="switch"
+      :class="theme === true ? 'is-checked' : ''"
+    >
       <input type="checkbox" class="switch-input" />
       <span class="switch-core" @click="changeTheme"></span>
     </div>
 
-
-    <div class="btn-view">
+    <!-- <div class="btn-view">
       <el-button class="btn" type="text" @click="login">{{
         token ? userInfo.username : "登录"
       }}</el-button>
@@ -43,7 +50,7 @@
         >注销</el-button
       >
 
-    </div>
+    </div> -->
     <CommonDialog
       v-if="showLogOutDialog"
       @close="showLogOutDialog = false"
@@ -65,18 +72,21 @@
 <script>
 import { mapGetters } from "vuex";
 import { initTheme } from "@utils/theme";
+import waves from "@/directive/waves"; // waves directive
+import clipboard from "@/directive/clipboard/index.js"; // use clipboard by v-directive
 export default {
   components: {
     CommonDialog: () => import("@components/CommonDialog")
   },
+  directives: { waves, clipboard },
   data() {
     return {
       activeIndex: 0,
       showLogOutDialog: false,
       showCancelDialog: false,
       theme: true, // false深色主题
-      switchv:false
- 
+      switchv: false,
+      inputData: "https://github.com/PanJiaChen/vue-element-admin"
     };
   },
   computed: {
@@ -97,8 +107,6 @@ export default {
   },
 
   created() {
-    
-
     this.activeIndex = 0;
     if (sessionStorage.getItem("active-tab")) {
       this.activeIndex = sessionStorage.getItem("active-tab");
@@ -118,6 +126,13 @@ export default {
     changeTheme() {
       this.theme = !this.theme;
       initTheme(this.theme);
+    },
+    clipboardSuccess() {
+      this.$message({
+        message: "Copy successfully",
+        type: "success",
+        duration: 1500
+      });
     },
     tabClick(index, data) {
       this.activeIndex = index;
@@ -161,7 +176,6 @@ export default {
         });
     },
     cancellation() {
-     
       this.showCancelDialog = true;
     },
     doCancel() {
@@ -224,7 +238,7 @@ $red: white;
   padding: 0 30px;
   height: 70px;
   min-height: 70px;
-  background-color: var(--bg);;
+  background-color: var(--bg);
   color: var(--text-2);
   .logo {
     position: absolute;
@@ -321,7 +335,6 @@ $red: white;
     }
   }
 
-
   .switch {
     display: inline-flex;
     align-items: center;
@@ -332,7 +345,7 @@ $red: white;
     vertical-align: middle;
   }
   .switch {
-    margin-right: 20px ;
+    margin-right: 20px;
     position: fixed;
     right: 0;
     &-input {
@@ -383,6 +396,5 @@ $red: white;
     border-color: #dcdfe6;
     background-color: #dcdfe6;
   }
-  
 }
 </style>

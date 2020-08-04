@@ -8,7 +8,6 @@ import 'element-ui/lib/theme-chalk/index.css';
 // import '@assets/font/iconfont.css'
 import 'animate.css'
 
-import common from '@/utils/common' // 全局方法
 import filters from '@/utils/filters' // 全局过滤器
 import '@utils/directives.js' //防多次点击，重复提交
 import '@utils/permission'

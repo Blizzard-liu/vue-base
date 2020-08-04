@@ -26,20 +26,7 @@ const preventReClick = Vue.directive('preventReClick', {
   }
 })
 
-// <el-input v-model.trim="item.additional_fee" v-numberInt:2="item.additional_fee"></el-input>
 
-const numberInt = Vue.directive('numberInt', { bind: function(el, binding, vnode) { 
-  const element = el.getElementsByTagName('input')[0] 
-  const len = binding.arg  // 初始化设置 
-  element.value = Number(element.value ).toFixed(len)  // 失焦时候格式化
-  element.addEventListener('blur', function() { 
-  if (isNaN(element.value)) {   
-    vnode.data.model.callback(0)  
-   } else {   
-    vnode.data.model.callback(Number(element.value).toFixed(len)) 
-   }  
-   }) 
- }})
 
  
  Vue.directive('token', {
@@ -62,7 +49,7 @@ function cancelEvent(event){
   }
 }
 
-export { preventReClick,numberInt }
+export { preventReClick }
 
 
 
