@@ -78,7 +78,7 @@ module.exports = {
   css: {
     loaderOptions: {
       sass: {
-        prependData: `@import "@/assets/scss/common.scss";`
+        additionalData: `@import "@/assets/scss/common.scss";`
       }
     }
   },
@@ -146,7 +146,7 @@ module.exports = {
       config.externals = externals;
       productionGzip && plugins.push(
         new CompressionWebpackPlugin({
-          asset: "[path].gz[query]",
+          filename: "[path].gz[query]",
           algorithm: "gzip",
           test: productionGzipExtensions,
           threshold: 10240,
