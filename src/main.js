@@ -28,7 +28,6 @@ for (let key in filters) {
   Vue.filter(key, filters[key])
 }
 
-Vue.use(common)
 
 Vue.config.productionTip = false
 
