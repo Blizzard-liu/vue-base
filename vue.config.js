@@ -19,7 +19,7 @@ const externals = {
     // 开发环境
     dev: {
       css: [
-        "https://cdn.bootcdn.net/ajax/libs/element-ui/2.13.0/theme-chalk/index.css",
+        "https://cdn.bootcdn.net/ajax/libs/element-ui/2.13.2/theme-chalk/index.css",
         'https://cdn.bootcdn.net/ajax/libs/nprogress/0.2.0/nprogress.min.css'
       ],
       js: []
@@ -27,16 +27,16 @@ const externals = {
     // 生产环境
     build: {
       css: [
-        'https://cdn.bootcdn.net/ajax/libs/element-ui/2.13.0/theme-chalk/index.css',
+        'https://cdn.bootcdn.net/ajax/libs/element-ui/2.13.2/theme-chalk/index.css',
         'https://cdn.bootcdn.net/ajax/libs/nprogress/0.2.0/nprogress.min.css'
       ],
       js: [
-        "https://cdn.bootcdn.net/ajax/libs/vue/2.6.10/vue.min.js", 
-        "https://cdn.bootcdn.net/ajax/libs/vue-router/3.1.6/vue-router.min.js",
-        "https://cdn.bootcdn.net/ajax/libs/vuex/3.1.3/vuex.min.js",
-        "https://cdn.bootcdn.net/ajax/libs/axios/0.19.0/axios.min.js",
-        "https://cdn.bootcdn.net/ajax/libs/element-ui/2.13.0/index.js",
-        'https://cdn.bootcdn.net/ajax/libs/js-cookie/2.2.0/js.cookie.min.js',
+        "https://cdn.bootcdn.net/ajax/libs/vue/2.6.11/vue.min.js", 
+        "https://cdn.bootcdn.net/ajax/libs/vue-router/3.3.4/vue-router.min.js",
+        "https://cdn.bootcdn.net/ajax/libs/vuex/3.5.1/vuex.min.js",
+        "https://cdn.bootcdn.net/ajax/libs/axios/0.19.2/axios.min.js",
+        "https://cdn.bootcdn.net/ajax/libs/element-ui/2.13.2/index.js",
+        'https://cdn.bootcdn.net/ajax/libs/js-cookie/2.2.1/js.cookie.min.js',
         'https://cdn.bootcdn.net/ajax/libs/nprogress/0.2.0/nprogress.min.js'
   
         
