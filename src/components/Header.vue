@@ -10,6 +10,10 @@
         >首 页<span class="divider"></span
       ></a> -->
 
+       <el-button>默认按钮</el-button>
+ <el-checkbox checked>备选项</el-checkbox>
+ <theme></theme>
+
       <el-input
         v-model="inputData"
         placeholder="Please input"
@@ -76,7 +80,8 @@ import waves from "@/directive/waves"; // waves directive
 import clipboard from "@/directive/clipboard/index.js"; // use clipboard by v-directive
 export default {
   components: {
-    CommonDialog: () => import("@components/CommonDialog")
+    CommonDialog: () => import("@components/CommonDialog"),
+    Theme: () => import("@components/Theme")
   },
   directives: { waves, clipboard },
   data() {

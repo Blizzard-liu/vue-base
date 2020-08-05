@@ -56,3 +56,16 @@
 .breadcrumb-leave-active {
   position: absolute;
 }
+
+//位移动画 //transition: all 1s cubic-bezier(.33,1,.68,1);
+// 背景图片 hover 放大效果
+.devui-card-1[_ngcontent-c1]:hover {
+  background-size: 110% 110%;
+}
+.devui-card-1[_ngcontent-c1] {
+  // background: url(/assets/img/newHome/02-01.png) center 100%/100% 100% no-repeat border-box;
+  height: 600px;
+  position: relative;
+  cursor: pointer;
+  transition: all .6s cubic-bezier(.65,0,.35,1);
+}
