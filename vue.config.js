@@ -32,7 +32,7 @@ const externals = {
       ],
       js: [
         "https://cdn.bootcdn.net/ajax/libs/vue/2.6.11/vue.min.js", 
-        "https://cdn.bootcdn.net/ajax/libs/vue-router/3.3.4/vue-router.min.js",
+        "https://cdn.bootcdn.net/ajax/libs/vue-router/3.4.0/vue-router.min.js",
         "https://cdn.bootcdn.net/ajax/libs/vuex/3.5.1/vuex.min.js",
         "https://cdn.bootcdn.net/ajax/libs/axios/0.19.2/axios.min.js",
         "https://cdn.bootcdn.net/ajax/libs/element-ui/2.13.2/index.js",
