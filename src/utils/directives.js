@@ -5,6 +5,26 @@ import {
 } from 'element-ui'
 
 
+// Observe the elements which have animations to fire.
+//https://juejin.im/post/6844903874302574599
+//https://www.shuzhiduo.com/A/MyJxp47XJn/
+const observer = new IntersectionObserver(function (entries) {
+  entries.forEach(function (entry) {
+    // isIntersecting是一个Boolean值，判断目标元素当前是否可见
+      if (entry.isIntersecting) {
+          entry.target.classList.add("enter");
+          observer.unobserve(item.target)
+      }
+  });
+}, { rootMargin: "0px 0px -140px" });
+
+//自定义可视区域执行动画 v-enter
+Vue.directive('enter', { bind: function(el, binding, vnode) { 
+  el.classList.add('before-enter');
+  observer.observe(el);
+ }})
+
+
 // 自定义埋点指令
 Vue.directive('track', {
   //钩子函数，只调用一次，指令第一次绑定到元素时调用。在这里可以进行一次性的初始化设置
