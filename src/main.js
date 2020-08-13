@@ -3,30 +3,20 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 
-import ElementUI from 'element-ui'
-import '@assets/scss/elvariables.scss'
-// import '@assets/font/iconfont.css'
-import 'animate.css'
 
-import filters from '@/utils/filters' // 全局过滤器
-import '@utils/directives.js' //防多次点击，重复提交
-import '@utils/permission'
+import common from '@/utils/common' // 全局方法
+
 import { initTheme } from "@utils/theme";
-import {EventEmitter} from 'events';
-import api from "@/api";
+
+Vue.use(common)
+
 
 initTheme(true);
-Vue.prototype.$api = api
-Vue.use(ElementUI, {
-  size: 'medium' // set element-ui default size
-})
-Vue.prototype.$bus = new EventEmitter();
 
 
-// 注册过滤器
-for (let key in filters) {
-  Vue.filter(key, filters[key])
-}
+
+
+
 
 
 Vue.config.productionTip = false
