@@ -1,5 +1,5 @@
 <template>
-  <div class="footer">
+  <footer class="footer">
     <div class="tab-view">
       <div
         class="tab-item"
@@ -34,7 +34,7 @@
     <div class="copyright">
       Copyright © 
     </div>
-  </div>
+  </footer>
 </template>
 
 <script>
@@ -61,7 +61,7 @@ export default {
   justify-content: center;
   align-items: center;
   position: relative;
-  padding: 20px;
+  padding: 30px;
 
   .tab-view {
     display: flex;

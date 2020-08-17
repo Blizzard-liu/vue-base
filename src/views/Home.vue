@@ -7,6 +7,7 @@
             <li  v-for="item in discList" :key="item.dissid" class="item">
               <div class="icon">
                 <img :src="item.imgurl" alt width="60px" height="60px" />
+                <i class="light-flash"></i>
               </div>
               <div class="text">
                 <h2 class="name" v-html="item.creator.name"></h2>
@@ -705,9 +706,23 @@ export default {
       align-items: center;
       padding: 0 20px 20px 20px;
       .icon {
-        flex: 0 0 60px;
+        position: relative;
         width: 60px;
         margin-right: 20px;
+        overflow: hidden;
+        transition: all .3s ease;
+        &:hover {
+          transform: translateY(-6px);
+    -webkit-transform: translateY(-6px);
+    -moz-transform: translateY(-6px);
+    box-shadow: 0 12px 20px -12px rgba(0,36,100,.5);
+    -webkit-box-shadow:  0 12px 20px -12px rgba(0,36,100,.5);
+    -moz-box-shadow:  0 12px 20px -12px rgba(0,36,100,.5);
+    .light-flash {
+          transition: all .3s ease;
+    left: 100%;
+    }
+        }
       }
       .text {
         display: flex;

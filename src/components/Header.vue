@@ -1,5 +1,5 @@
 <template>
-  <div class="header">
+  <header class="header">
     <img class="logo animate__animated animate__fadeInRight" alt="" />
 
     <div class="tab-view ">
@@ -27,7 +27,7 @@
       >
         copy
       </el-button>
-      <el-button v-waves type="primary">主要按钮</el-button>
+      <el-button type="primary">主要按钮</el-button>
       <el-switch v-model="switchv"> </el-switch>
     </div>
 
@@ -70,7 +70,7 @@
     >
       <p>确定注销当前账户？</p>
     </CommonDialog>
-  </div>
+  </header>
 </template>
 
 <script>

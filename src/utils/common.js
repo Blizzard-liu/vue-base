@@ -11,26 +11,37 @@ import ElementUI from 'element-ui'
 import '@assets/scss/elvariables.scss'
 // import '@assets/font/iconfont.css'
 import 'animate.css'
+//注册全局组件
+import BackTop from "@components/BackTop";
 
 const common = {
   install: function (Vue, options) {
-    
+    //注册全局组件
     Vue.use(ElementUI, {
       size: 'medium' // set element-ui default size
     });
-    // 注册过滤器
-    for (let key in filters) {
-      Vue.filter(key, filters[key])
-    }
-    //
-    Vue.prototype.$api = api;
-    //
-    Vue.prototype.$bus = new EventEmitter();
 
     //https://element.eleme.cn/#/zh-CN/component/notification
     Vue.prototype.$tip = function (option) {
       Notification({customClass:'custom-tip-box',title:'消息',offset:60,...option});
     }
+
+    
+    Vue.component('backTop',BackTop);
+
+
+    // 注册过滤器
+    for (let key in filters) {
+      Vue.filter(key, filters[key])
+    }
+
+
+    //
+    Vue.prototype.$api = api;
+    //
+    Vue.prototype.$bus = new EventEmitter();
+
+    
 
     // 深copy
     Vue.prototype.$cloneDeep = function (Obj) {

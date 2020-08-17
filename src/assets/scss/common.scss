@@ -11,9 +11,7 @@ $baseFontSizeHeight: 1080;
 @function px2vh($px) {
   @return $px / $baseFontSizeHeight * 100vh;
 }
-* {
-  box-sizing: border-box;
-}
+
 body,
 html {
   line-height: 1;
