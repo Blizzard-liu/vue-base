@@ -1,5 +1,6 @@
 <template>
     <div class="reaconmend" ref="reaconmend">
+      <lottie class="lottie"></lottie>
     <div class="reaconmend-content">
       <div>
         <div class="reaconmend-list">
@@ -28,7 +29,7 @@
 export default {
   name: "home",
   components: {
-   
+   lottie: () => import("@components/lottie"),
   },
   data() {
     let that = this;
@@ -684,6 +685,14 @@ export default {
 <style lang="scss" scoped>
 .reaconmend {
   padding:20px;
+  position: relative;
+  .lottie {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 300px;
+    height: 300px;
+  }
   .reaconmend-content {
     height: 100%;
     .slider-wrapper {

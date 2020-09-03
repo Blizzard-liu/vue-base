@@ -62,6 +62,13 @@ export default {
       })
     },
 
+    lottie () {
+      return request2({
+        url: '/packages/lf20_3vbOcw.json',
+        method: 'get',
+      })
+    },
+
 
 
 }

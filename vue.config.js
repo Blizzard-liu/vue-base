@@ -66,7 +66,13 @@ module.exports = {
           '^/api': ''
           }
       },
-
+      '/lottie': {
+        target: 'https://assets6.lottiefiles.com',
+        changeOrigin: true,
+        pathRewrite: {
+          '^/lottie': ''
+          }
+      }
     },
   },
   publicPath: process.env.NODE_ENV === 'production' ? './' : '/',
