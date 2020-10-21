@@ -6,6 +6,12 @@
 import lottie from "lottie-web";
 export default {
   name: "lottie",
+  props:{
+      url:{
+          type:String,
+          require:true
+      }
+  },
   data() {
     return {
       datajson: ""
@@ -23,12 +29,13 @@ export default {
         renderer: "svg", // 渲染出来的是什么格式
         loop: true, // 循环播放
         autoplay: true, // 自动播放
+        // path:'https://assets6.lottiefiles.com/packages/lf20_3vbOcw.json',https://assets9.lottiefiles.com/private_files/lf30_Y7PQoU.json
         animationData: this.datajson // 动画json的路径
       });
     },
     getData() {
       this.$api
-        .lottie()
+        .lottie(this.url)
         .then(res => {
           this.datajson = res;
           this.init();

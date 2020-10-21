@@ -4,7 +4,7 @@ import {
   Message
 } from 'element-ui'
 
-
+// ################################################################################
 // Observe the elements which have animations to fire.
 //https://juejin.im/post/6844903874302574599
 //https://www.shuzhiduo.com/A/MyJxp47XJn/
@@ -24,7 +24,7 @@ Vue.directive('enter', { bind: function(el, binding, vnode) {
   observer.observe(el);
  }})
 
-
+// ################################################################################
 // 自定义埋点指令
 Vue.directive('track', {
   //钩子函数，只调用一次，指令第一次绑定到元素时调用。在这里可以进行一次性的初始化设置
@@ -68,7 +68,7 @@ Vue.directive('track', {
     }
   }
 })
-
+// ################################################################################
 
 /**
  * // 指定延迟1000ms
@@ -92,7 +92,7 @@ Vue.directive('track', {
 })
 
 
-
+// ################################################################################
  
  Vue.directive('token', {
   inserted: function(el, binding,vNode) {
@@ -113,6 +113,50 @@ function cancelEvent(event){
       window.event.returnValue = false;
   }
 }
+
+// ################################################################################
+
+const setStyle = (el, values) => {
+  const defaults = {
+      isSticky: true,
+      offset: 80,
+  };
+  
+  const isSticky = values && values.isSticky !== undefined
+      ? values.isSticky
+      : defaults.isSticky;
+
+  if (isSticky) {
+      const offset = values && values.offset || defaults.offset;
+
+      el.style.top = `${offset}px`;
+      el.style.position = 'sticky';
+      el.style.position = '-webkit-sticky'; /* Safari */
+  } else {
+      el.style.cssText = null;
+  }
+};
+/**
+ * Vue Sticky directive
+ * @directive
+ * @example
+ * {
+ *   directives: {
+ *     Sticky,
+ *   },
+ *   template: `<div v-sticky="{ offset: 0, isSticky: true }"></div>`,
+ * }
+ */
+Vue.directive('sticky', { 
+  bind: function(el, binding) { 
+    setStyle(el, binding.value);
+ },
+ componentUpdated: function(el, binding) { 
+  setStyle(el, binding.value);
+}
+})
+
+// ################################################################################
 
 
 

@@ -62,9 +62,9 @@ export default {
       })
     },
 
-    lottie () {
+    lottie (url) {
       return request2({
-        url: '/packages/lf20_3vbOcw.json',
+        url,
         method: 'get',
       })
     },

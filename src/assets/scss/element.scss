@@ -85,49 +85,49 @@
 }
 
 // ==============================================================
-.el-dialog.is-fullscreen {
-  width: 100%!important;
-  .el-dialog__body {
-    height: calc(100% - 50px);
-  }
-}
-.el-dialog__wrapper {
-  .el-dialog {
-    width: 540px;
-    border-radius: 8px;
-    .dialog-input-view {
-      width: 360px;
-    }
-  }
-  .el-dialog__header {
-    height: 50px;
-    display: flex;
-    align-items: center;
-    padding: 0 20px;
-    border-bottom: 1px solid rgba(229, 229, 229, 1);
-    .el-dialog__title {
-      font-size: 16px;
-      font-weight: bold;
-      color: rgba(34, 34, 34, 1);
-    }
-    .el-dialog__headerbtn {
-      top: 12px;
-      .el-dialog__close {
-        font-size: 24px;
-      }
-    }
-  }
-  .el-dialog__footer {
-    // border-top: 1px solid #e8ecef;
-    // height: 72px;
-    // line-height: 72px;
-    // padding: 0 20px;
-    // text-align: right;
-    .el-button {
-      height: 36px;
-    }
-  }
-}
+// .el-dialog.is-fullscreen {
+//   width: 100%!important;
+//   .el-dialog__body {
+//     height: calc(100% - 50px);
+//   }
+// }
+// .el-dialog__wrapper {
+//   .el-dialog {
+//     width: 540px;
+//     border-radius: 8px;
+//     .dialog-input-view {
+//       width: 360px;
+//     }
+//   }
+//   .el-dialog__header {
+//     height: 50px;
+//     display: flex;
+//     align-items: center;
+//     padding: 0 20px;
+//     border-bottom: 1px solid rgba(229, 229, 229, 1);
+//     .el-dialog__title {
+//       font-size: 16px;
+//       font-weight: bold;
+//       color: rgba(34, 34, 34, 1);
+//     }
+//     .el-dialog__headerbtn {
+//       top: 12px;
+//       .el-dialog__close {
+//         font-size: 24px;
+//       }
+//     }
+//   }
+//   .el-dialog__footer {
+//     // border-top: 1px solid #e8ecef;
+//     // height: 72px;
+//     // line-height: 72px;
+//     // padding: 0 20px;
+//     // text-align: right;
+//     .el-button {
+//       height: 36px;
+//     }
+//   }
+// }
 
 // ==============================================================
 .el-range-editor--medium .el-range-separator {

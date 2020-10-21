@@ -27,7 +27,7 @@
       >
         copy
       </el-button>
-      <el-button type="primary">主要按钮</el-button>
+      <el-button type="primary" @click="showLogOutDialog=true">主要按钮</el-button>
       <el-switch v-model="switchv"> </el-switch>
     </div>
 
@@ -70,20 +70,22 @@
     >
       <p>确定注销当前账户？</p>
     </CommonDialog>
+
   </header>
 </template>
 
 <script>
 import { mapGetters } from "vuex";
 import { initTheme } from "@utils/theme";
-import waves from "@/directive/waves"; // waves directive
 import clipboard from "@/directive/clipboard/index.js"; // use clipboard by v-directive
+
 export default {
   components: {
     CommonDialog: () => import("@components/CommonDialog"),
+    // BaseDialog: () => import("@components/BaseDialog"),
     Theme: () => import("@components/Theme")
   },
-  directives: { waves, clipboard },
+  directives: {  clipboard },
   data() {
     return {
       activeIndex: 0,
@@ -165,6 +167,9 @@ export default {
       this.showLogOutDialog = true;
     },
     doLogout() {
+      this.showCancelDialog = true;
+      return
+      
       this.$store
         .dispatch("user/LogOut")
         .then(res => {

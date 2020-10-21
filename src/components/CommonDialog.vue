@@ -1,11 +1,14 @@
 <template>
   <div>
     <el-dialog
+    v-el-drag-dialog
+    :modal="false"
+      :close-on-click-modal="false"
       :visible.sync="dialogVisible"
       :width="width"
       :title="title"
       @close="onClose"
-      append-to-body
+     
     >
     <div class="slot-view">
       <slot />
@@ -20,8 +23,10 @@
 </template>
 
 <script>
+import elDragDialog from "@/directive/el-drag-dialog/index.js"; // use clipboard by v-directive
 export default {
   components: {},
+  directives: { elDragDialog },
   props: {
     width: {
       default: "400px",
@@ -45,7 +50,7 @@ export default {
       this.$emit("close");
     },
     submitForm() {
-      this.dialogVisible = false;
+      // this.dialogVisible = false;
       this.$emit("confirm");
     }
   }

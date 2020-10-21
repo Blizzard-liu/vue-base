@@ -1,6 +1,7 @@
 <template>
     <div class="reaconmend" ref="reaconmend">
-      <lottie class="lottie"></lottie>
+      <lottie class="lottie2" :url="url1"></lottie>
+      <lottie class="lottie" :url="url2"></lottie>
     <div class="reaconmend-content">
       <div>
         <div class="reaconmend-list">
@@ -34,7 +35,9 @@ export default {
   data() {
     let that = this;
     return {
-      discList: []
+      discList: [],
+      url1:'/packages/lf20_3vbOcw.json',
+      url2:"/packages/lf20_wWb05D.json"
     };
   },
   computed: {
@@ -688,8 +691,16 @@ export default {
   position: relative;
   .lottie {
     position: fixed;
-    bottom: 20px;
-    right: 20px;
+    bottom: 0;
+    right: 0;
+    width: 300px;
+    height: 300px;
+
+  }
+  .lottie2 {
+    position: fixed;
+    top: 40px;
+    right: 40px;
     width: 300px;
     height: 300px;
   }
