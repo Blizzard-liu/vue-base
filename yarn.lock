@@ -5785,15 +5785,10 @@ lodash.uniq@^4.5.0:
   resolved "https://registry.yarnpkg.com/lodash.uniq/-/lodash.uniq-4.5.0.tgz#d0225373aeb652adc1bc82e4945339a842754773"
   integrity sha1-0CJTc662Uq3BvILklFM5qEJ1R3M=
 
-lodash@^4.0.0, lodash@^4.17.11, lodash@^4.17.13, lodash@^4.17.14, lodash@^4.17.15, lodash@^4.17.3, lodash@~4.17.12:
-  version "4.17.15"
-  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.15.tgz#b447f6670a0455bbfeedd11392eff330ea097548"
-  integrity sha512-8xOcRHvCjnocdS5cpwXQXVzmmh5e5+saE2QGoeQmbKmRS6J3VQppPOIt0MnmE+4xlZoumy0GPG0D0MVIQbNA1A==
-
-lodash@^4.17.19:
-  version "4.17.19"
-  resolved "https://registry.npm.taobao.org/lodash/download/lodash-4.17.19.tgz?cache=0&sync_timestamp=1594226952537&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Flodash%2Fdownload%2Flodash-4.17.19.tgz#e48ddedbe30b3321783c5b4301fbd353bc1e4a4b"
-  integrity sha1-5I3e2+MLMyF4PFtDAfvTU7weSks=
+lodash@^4.0.0, lodash@^4.17.11, lodash@^4.17.13, lodash@^4.17.14, lodash@^4.17.15, lodash@^4.17.19, lodash@^4.17.3, lodash@~4.17.12:
+  version "4.17.21"
+  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.21.tgz#679591c564c3bffaae8454cf0b3df370c3d6911c"
+  integrity sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==
 
 log-symbols@^2.2.0:
   version "2.2.0"
@@ -5814,10 +5809,10 @@ loose-envify@^1.0.0:
   dependencies:
     js-tokens "^3.0.0 || ^4.0.0"
 
-lottie-web@^5.7.3:
-  version "5.7.3"
-  resolved "https://registry.npm.taobao.org/lottie-web/download/lottie-web-5.7.3.tgz#dbe542270665be5dd5b32deae19e27de6e77728c"
-  integrity sha1-2+VCJwZlvl3Vsy3q4Z4n3m53cow=
+lottie-web@^5.7.13:
+  version "5.7.13"
+  resolved "https://registry.yarnpkg.com/lottie-web/-/lottie-web-5.7.13.tgz#c4087e4742c485fc2c4034adad65d1f3fcd438b0"
+  integrity sha512-6iy93BGPkdk39b0jRgJ8Zosxi8QqcMP5XcDvg1f0XAvEkke6EMCl6BUO4Lu78dpgvfG2tzut4QJ+0vCrfbrldQ==
 
 loud-rejection@^1.0.0:
   version "1.6.0"
@@ -8656,6 +8651,11 @@ table@^5.2.3:
     lodash "^4.17.14"
     slice-ansi "^2.1.0"
     string-width "^3.0.0"
+
+taggd-manager@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/taggd-manager/-/taggd-manager-1.1.1.tgz#ce717204e849cf1ff7852450b4e9119790f866bc"
+  integrity sha512-B8v0smYkelze0czUe5FvgFBnImANAene+abFNfirDl+fJQ0qDdWO2CdxH9O9/00kSXJBk3f/Wkacveu7J4nwtA==
 
 tapable@^0.1.8:
   version "0.1.10"
