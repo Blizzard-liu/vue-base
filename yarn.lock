@@ -5814,10 +5814,10 @@ loose-envify@^1.0.0:
   dependencies:
     js-tokens "^3.0.0 || ^4.0.0"
 
-lottie-web@^5.7.3:
-  version "5.7.3"
-  resolved "https://registry.npm.taobao.org/lottie-web/download/lottie-web-5.7.3.tgz#dbe542270665be5dd5b32deae19e27de6e77728c"
-  integrity sha1-2+VCJwZlvl3Vsy3q4Z4n3m53cow=
+lottie-web@^5.7.13:
+  version "5.7.13"
+  resolved "https://registry.yarnpkg.com/lottie-web/-/lottie-web-5.7.13.tgz#c4087e4742c485fc2c4034adad65d1f3fcd438b0"
+  integrity sha512-6iy93BGPkdk39b0jRgJ8Zosxi8QqcMP5XcDvg1f0XAvEkke6EMCl6BUO4Lu78dpgvfG2tzut4QJ+0vCrfbrldQ==
 
 loud-rejection@^1.0.0:
   version "1.6.0"
@@ -6845,9 +6845,9 @@ path-key@^3.0.0, path-key@^3.1.0:
   integrity sha512-ojmeN0qd+y0jszEtoY48r0Peq5dwMEkIlCOu6Q5f41lfkswXuKtYrhgoTpLnyIcHm24Uhqx+5Tqm2InSwLhE6Q==
 
 path-parse@^1.0.6:
-  version "1.0.6"
-  resolved "https://registry.yarnpkg.com/path-parse/-/path-parse-1.0.6.tgz#d62dbb5679405d72c4737ec58600e9ddcf06d24c"
-  integrity sha512-GSmOT2EbHrINBf9SR7CDELwlJ8AENk3Qn7OikK4nFYAu3Ote2+JYNVvkpAEQm3/TLNEJFD/xZJjzyxg3KBWOzw==
+  version "1.0.7"
+  resolved "https://registry.yarnpkg.com/path-parse/-/path-parse-1.0.7.tgz#fbc114b60ca42b30d9daf5858e4bd68bbedb6735"
+  integrity sha512-LDJzPVEEEPR+y48z93A0Ed0yXb8pAByGWo/k5YYdYgpY2/2EsOsksJrq7lOHxryrVOn1ejG6oAp8ahvOIQD8sw==
 
 path-to-regexp@0.1.7:
   version "0.1.7"
@@ -8656,6 +8656,11 @@ table@^5.2.3:
     lodash "^4.17.14"
     slice-ansi "^2.1.0"
     string-width "^3.0.0"
+
+taggd-manager@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/taggd-manager/-/taggd-manager-1.1.1.tgz#ce717204e849cf1ff7852450b4e9119790f866bc"
+  integrity sha512-B8v0smYkelze0czUe5FvgFBnImANAene+abFNfirDl+fJQ0qDdWO2CdxH9O9/00kSXJBk3f/Wkacveu7J4nwtA==
 
 tapable@^0.1.8:
   version "0.1.10"
