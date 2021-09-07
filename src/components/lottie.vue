@@ -4,6 +4,7 @@
 
 <script>
 import lottie from "lottie-web";
+import datajson from './test.json'
 export default {
   name: "lottie",
   props:{
@@ -23,14 +24,14 @@ export default {
   methods: {
     init() {
       //lottie.play()  lottie.stop()
+      
       const icon = document.getElementById("lottie");
       lottie.loadAnimation({
         container: icon, // 包含动画的dom元素
-        renderer: "svg", // 渲染出来的是什么格式
+        renderer: "html", // 渲染出来的是什么格式 渲染方式，svg、canvas、html（轻量版仅svg渲染）
         loop: true, // 循环播放
         autoplay: true, // 自动播放
-        // path:'https://assets6.lottiefiles.com/packages/lf20_3vbOcw.json',https://assets9.lottiefiles.com/private_files/lf30_Y7PQoU.json
-        animationData: this.datajson // 动画json的路径
+        animationData: datajson // 动画json的路径
       });
     },
     getData() {

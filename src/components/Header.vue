@@ -27,7 +27,7 @@
       >
         copy
       </el-button>
-      <el-button type="primary" @click="showLogOutDialog=true">主要按钮</el-button>
+      <el-button type="primary" @click="showTestDialog=true;dialogVisible=true;">主要按钮</el-button>
       <el-switch v-model="switchv"> </el-switch>
     </div>
 
@@ -71,6 +71,27 @@
       <p>确定注销当前账户？</p>
     </CommonDialog>
 
+    <!-- <TestDialog
+     v-if="showTestDialog"
+      @close="showTestDialog = false"
+    >
+
+    </TestDialog> -->
+
+    <div v-if="showTestDialog">
+    <Modal
+      v-model="dialogVisible"
+      title="Common Modal dialog box title"
+      @on-ok="ok"
+      @on-visible-change="change"
+      @on-cancel="cancel"
+    >
+      <p>Content of dialog</p>
+      <p>Content of dialog</p>
+      <p>Content of dialog</p>
+    </Modal>
+  </div>
+
   </header>
 </template>
 
@@ -82,6 +103,7 @@ import clipboard from "@/directive/clipboard/index.js"; // use clipboard by v-di
 export default {
   components: {
     CommonDialog: () => import("@components/CommonDialog"),
+    // TestDialog: () => import("@components/TestDialog"),
     // BaseDialog: () => import("@components/BaseDialog"),
     Theme: () => import("@components/Theme")
   },
@@ -90,6 +112,8 @@ export default {
     return {
       activeIndex: 0,
       showLogOutDialog: false,
+      showTestDialog:false,
+      dialogVisible:true,
       showCancelDialog: false,
       theme: true, // false深色主题
       switchv: false,
@@ -130,6 +154,20 @@ export default {
     this.$bus.off("header-active-index", this.tabClick);
   },
   methods: {
+    change(val) {
+      debugger;
+      if (!val) {
+        this.showTestDialog = false;
+      }
+    },
+
+    ok() {
+      this.$Message.info("Clicked ok");
+      
+    },
+    cancel() {
+      this.$Message.info("Clicked cancel");
+    },
     changeTheme() {
       this.theme = !this.theme;
       initTheme(this.theme);

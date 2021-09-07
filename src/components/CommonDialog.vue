@@ -50,7 +50,7 @@ export default {
       this.$emit("close");
     },
     submitForm() {
-      // this.dialogVisible = false;
+      this.dialogVisible = false;
       this.$emit("confirm");
     }
   }

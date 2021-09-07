@@ -12,6 +12,7 @@
                 <i class="light-flash"></i>
               </div>
               <div class="text">
+                <i class="list-bg"></i>
                 <h2 class="name" v-html="item.creator.name"></h2>
                 <div class="desc" v-html="item.dissname"></div>
               </div>
@@ -746,18 +747,40 @@ export default {
       }
       .text {
         display: flex;
+        position: relative;
         flex-direction: column;
         justify-content: center;
-        flex: 1;
+        background: transparent;
+        // flex: 1;
+        width: 300px;
         line-height: 20px;
         overflow: hidden;
         color: var(--font-size-medium);
+        &:hover {
+          .list-bg{
+            width:100%;
+          }
+        }
+      }
+      .list-bg{
+    width: 0;
+    height: 100%;
+    display: block;
+    position: absolute;
+    background: #f4f4f4;
+    top: 0;
+    right: 0;
+    -webkit-transition: all .3s ease;
+    -o-transition: all .3s ease;
+    transition: all .3s ease;
       }
       .name {
+        z-index: 1;
         margin-bottom: 10px;
         color: var(--text);
       }
       .desc {
+        z-index: 1;
         color: var(--text-1);
       }
     }
