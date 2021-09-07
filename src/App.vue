@@ -29,9 +29,9 @@ export default {
     //   sessionStorage.setItem("store", JSON.stringify(this.$store.state));
     // });
 
-    this.$store.dispatch('user/userState');
-    this.$store.dispatch('user/userState');
-    this.$store.dispatch('user/userState');
+    // this.$store.dispatch('user/userState');
+    // this.$store.dispatch('user/userState');
+    // this.$store.dispatch('user/userState');
   }
 };
 </script>

@@ -10,7 +10,7 @@
         >首 页<span class="divider"></span
       ></a> -->
 
-       <el-button>默认按钮</el-button>
+       <el-button @click="showDialog = true">tagged</el-button>
  <el-checkbox checked>备选项</el-checkbox>
  <theme></theme>
 
@@ -92,6 +92,10 @@
     </Modal>
   </div>
 
+  <b-dialog v-if="showDialog" 
+@close="showDialog = false" >
+    </b-dialog>
+
   </header>
 </template>
 
@@ -105,11 +109,13 @@ export default {
     CommonDialog: () => import("@components/CommonDialog"),
     // TestDialog: () => import("@components/TestDialog"),
     // BaseDialog: () => import("@components/BaseDialog"),
-    Theme: () => import("@components/Theme")
+    Theme: () => import("@components/Theme"),
+    BDialog: () => import("./BDialog.vue"),
   },
   directives: {  clipboard },
   data() {
     return {
+      showDialog:false,
       activeIndex: 0,
       showLogOutDialog: false,
       showTestDialog:false,
