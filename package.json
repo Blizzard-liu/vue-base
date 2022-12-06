@@ -22,7 +22,7 @@
     "js-cookie": "^2.2.1",
     "lottie-web": "^5.7.13",
     "nprogress": "^0.2.0",
-    "qs": "^6.9.4",
+    "qs": "^6.9.7",
     "taggd-manager": "^1.1.1",
     "view-design": "^4.4.0",
     "vue": "^2.6.11",
