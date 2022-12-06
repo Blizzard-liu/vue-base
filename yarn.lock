@@ -3279,9 +3279,9 @@ decamelize@^1.1.2, decamelize@^1.2.0:
   integrity sha1-9lNNFRSCabIDUue+4m9QH5oZEpA=
 
 decode-uri-component@^0.2.0:
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/decode-uri-component/-/decode-uri-component-0.2.0.tgz#eb3913333458775cb84cd1a1fae062106bb87545"
-  integrity sha1-6zkTMzRYd1y4TNGh+uBiEGu4dUU=
+  version "0.2.2"
+  resolved "https://registry.yarnpkg.com/decode-uri-component/-/decode-uri-component-0.2.2.tgz#e69dbe25d37941171dd540e024c444cd5188e1e9"
+  integrity sha512-FqUYQ+8o158GyGTrMFJms9qh3CqTKvAqgqsTnkLI8sKu0028orqBhxNMFkFen0zGyg6epACD32pjVk58ngIErQ==
 
 deep-equal@^1.0.1:
   version "1.1.1"
@@ -5814,10 +5814,10 @@ loose-envify@^1.0.0:
   dependencies:
     js-tokens "^3.0.0 || ^4.0.0"
 
-lottie-web@^5.7.3:
-  version "5.7.3"
-  resolved "https://registry.npm.taobao.org/lottie-web/download/lottie-web-5.7.3.tgz#dbe542270665be5dd5b32deae19e27de6e77728c"
-  integrity sha1-2+VCJwZlvl3Vsy3q4Z4n3m53cow=
+lottie-web@^5.7.13:
+  version "5.10.0"
+  resolved "https://registry.yarnpkg.com/lottie-web/-/lottie-web-5.10.0.tgz#72563f22efdcf2b8f7e8359743514930ebaf5f8c"
+  integrity sha512-q2hfqKrGXNkwjSSZjKxf3fWMi0e3ZBc03qBkVWoGbwUJ7BcG+9YXjMPtmmhitzk8Nc6VQ5PRnh9yInPdfq0PZg==
 
 loud-rejection@^1.0.0:
   version "1.6.0"
@@ -8656,6 +8656,11 @@ table@^5.2.3:
     lodash "^4.17.14"
     slice-ansi "^2.1.0"
     string-width "^3.0.0"
+
+taggd-manager@^1.1.1:
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/taggd-manager/-/taggd-manager-1.1.2.tgz#0b9d9250bf90a9e96003581c44a663530a395a7f"
+  integrity sha512-4KpTSA/A8s0pJqMaAVtGfAWWBnGOl2JHA9mjJIe579J6sSBeDpKJoqHLQTICzo8QQe9eXGZD4iWzNuLmBRkJZg==
 
 tapable@^0.1.8:
   version "0.1.10"
